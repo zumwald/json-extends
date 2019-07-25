@@ -1,0 +1,17 @@
+{
+    "extends": "base.json",
+    "bar": [
+        {
+            "a": true,
+        },
+
+        /**
+         * this is some comment block
+         * continued...
+         **/
+        {
+            "a": false,
+            "b": "apple", // trailing comma
+        }
+    ]
+}

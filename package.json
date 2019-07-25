@@ -1,0 +1,31 @@
+{
+  "name": "json-extends",
+  "version": "0.9.0",
+  "description": "A npm library for reading json files with tsconfig-like 'extends' inheritance",
+  "main": "index.js",
+  "repository": "https://github.com/zumwald/json-extends.git",
+  "author": "Daniel Zumwalt <json-extends@danzumwalt.com>",
+  "license": "MIT",
+  "scripts": {
+    "prettier:autofix": "prettier --write *.{js,json,md}",
+    "prettier:ci": "prettier -l *.{js,json,md}",
+    "compile": "tsc -d",
+    "build": "yarn run prettier:ci && yarn run compile",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "@types/json5": "^0.0.30",
+    "@types/lodash.merge": "^4.6.6",
+    "@types/node": "^12.6.8",
+    "jest": "^24.8.0",
+    "prettier": "^1.18.2",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "fs-jetpack": "^2.2.2",
+    "json5": "^2.1.0",
+    "lodash.merge": "^4.6.2"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "noImplicitUseStrict": true,
+    "experimentalDecorators": true,
+    "outDir": "dist",
+    "esModuleInterop": true
+  }
+}

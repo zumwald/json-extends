@@ -1,0 +1,11 @@
+{
+  extends: "config-2.json5",
+  bar: [
+    {
+      a: "overridden!"
+    },
+    {
+      a: "overridden again!"
+    }
+  ]
+}
