@@ -7,7 +7,7 @@ const EXTENDS = "extends";
 function ReadJson5File(path: string): any {
   // Read template as a string, then remove comments and parse into an object
   // before we provide it to an engine for processing.
-    let templateUtf8 = jetpack.read(path);
+  let templateUtf8 = jetpack.read(path);
   return parse(templateUtf8);
 }
 

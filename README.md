@@ -18,7 +18,6 @@ A npm library for reading json files with tsconfig-like "extends" inheritence
 }
 ```
 
-
 ```json
 // config-yellow.json
 {
@@ -32,13 +31,14 @@ A npm library for reading json files with tsconfig-like "extends" inheritence
 
 ```typescript
 // usage
-import { GetJsonObject } from "json-extends"
+import { GetJsonObject } from "json-extends";
 
 let result = GetJsonObject("config-yellow.json");
 console.log(result);
 ```
 
 output:
+
 ```json
 {
   "a": false,

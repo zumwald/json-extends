@@ -8,8 +8,8 @@
   "author": "Daniel Zumwalt <json-extends@danzumwalt.com>",
   "license": "MIT",
   "scripts": {
-    "prettier:autofix": "prettier --write *.{js,json,md}",
-    "prettier:ci": "prettier -l *.{js,json,md}",
+    "prettier:autofix": "prettier --write **/*.{ts,json,md}",
+    "prettier:ci": "prettier -l **/*.{ts,json,md}",
     "compile": "tsc -d",
     "build": "yarn run prettier:ci && yarn run compile",
     "test": "jest"
