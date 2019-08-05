@@ -1,6 +1,6 @@
 {
   "name": "json-extends",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A npm library for reading json files with tsconfig-like 'extends' inheritance",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

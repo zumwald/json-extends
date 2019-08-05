@@ -34,7 +34,8 @@ export function GetJsonObject(
       throw new Error("Circular reference detected, aborting now.");
     } else {
       templateLayers.unshift(template);
-      pathMap[path] = true;
+      let mapKey = templateStack.join(":") + ":" + path;
+      pathMap[mapKey] = true;
     }
 
     const getNewPath = (x: string): string => jetpack.path(path, "..", x);
