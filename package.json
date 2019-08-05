@@ -1,6 +1,6 @@
 {
   "name": "json-extends",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "description": "A npm library for reading json files with tsconfig-like 'extends' inheritance",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,7 +11,7 @@
     "prettier:autofix": "prettier --write **/*.{ts,json,md}",
     "prettier:ci": "prettier -l **/*.{ts,json,md}",
     "compile": "tsc -d",
-    "build": "yarn run prettier:ci && yarn run compile",
+    "build": "rm -rf ./dist && yarn run prettier:ci && yarn run compile && yarn run test",
     "test": "jest"
   },
   "devDependencies": {

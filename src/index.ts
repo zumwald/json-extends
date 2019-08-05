@@ -22,25 +22,41 @@ export function GetJsonObject(
 ): any {
   let templateLayers: Array<any> = [];
   let pathMap: { [key: string]: Boolean } = {};
+  let templateStack: Array<string> = [templatePath];
 
-  do {
-    let template = ReadJson5File(templatePath);
+  while (templateStack.length > 0) {
+    let path = templateStack.pop();
+    let template = ReadJson5File(path);
 
     // Check for circular reference, if no circular reference then push the template into the array
     // and save the current template's path for subsequent circular reference checks.
-    if (pathMap[templatePath] === true) {
+    if (pathMap[path] === true) {
       throw new Error("Circular reference detected, aborting now.");
     } else {
       templateLayers.unshift(template);
-      pathMap[templatePath] = true;
+      pathMap[path] = true;
     }
 
-    if (template[EXTENDS]) {
-      templatePath = jetpack.path(templatePath, "..", template[EXTENDS]);
+    const getNewPath = (x: string): string => jetpack.path(path, "..", x);
+    // inspect EXTENDS property and push relevant configuration paths (fully-qualified) onto the stack
+    if (!template[EXTENDS]) {
+      continue;
+    } else if (typeof template[EXTENDS] === "string") {
+      templateStack.push(getNewPath(template[EXTENDS]));
+    } else if (Array.isArray(template[EXTENDS])) {
+      (<string[]>template[EXTENDS]).forEach(x =>
+        templateStack.push(getNewPath(x))
+      );
     } else {
-      break;
+      throw new Error(`Invalid 'extends' property detected in ${path}`);
     }
-  } while (templateLayers.length > 0 && templateLayers.length < maxDepth);
+  }
+
+  if (templateLayers.length >= maxDepth) {
+    throw new Error(
+      "Exited early due to maximum inheritance. If this is by design, increase maxDepth property to the desired level."
+    );
+  }
 
   let combinedTemplate = merge({}, ...templateLayers);
   return combinedTemplate;

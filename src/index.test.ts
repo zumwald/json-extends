@@ -34,3 +34,12 @@ test("Json file with json5 syntax and overridden array", () => {
   expect(result).toHaveProperty("extends");
   expect(Object.getOwnPropertyNames(result)).toHaveLength(3);
 });
+
+test("Json file with multiple extends", () => {
+  let result = GetJsonObject(testDir + "config-4.jsonc");
+  expect(result).toHaveProperty("foo", "yellow");
+  expect(result).toHaveProperty("bar", "orange");
+  expect(result).toHaveProperty("count", 4);
+  expect(result).toHaveProperty("color", "none");
+  expect(Object.getOwnPropertyNames(result)).toHaveLength(5);
+});
