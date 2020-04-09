@@ -23,9 +23,11 @@ jobs:
     # Runs a single command using the runners shell
     - name: Yarn install
       uses: mkramb/yarn-action@v3
-      run: install --frozen-lockfile
+      with:
+        args: install --frozen-lockfile
       
     # Runs a single command using the runners shell
     - name: Yarn build
       uses: mkramb/yarn-action@v3
-      run: build
+      with:
+        args: build
