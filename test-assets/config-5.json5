@@ -1,0 +1,13 @@
+{
+  extends: "config-2.json5",
+  bar: [
+    // Explicit null here is used as a signal for custom merge to concat 
+    null,
+    {
+      a: "overridden!"
+    },
+    {
+      a: "overridden again!"
+    }
+  ]
+}

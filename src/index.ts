@@ -1,6 +1,6 @@
 import * as jetpack from "fs-jetpack";
 import { parse } from "json5";
-import merge from "lodash.merge";
+import { mergeWith, merge } from "lodash";
 
 const EXTENDS = "extends";
 
@@ -10,15 +10,16 @@ function ReadJson5File(path: string): any {
   let templateUtf8 = jetpack.read(path);
   return parse(templateUtf8);
 }
-
 /**
  * Read the template, following 'extends' property in each file.
  * @param templatePath the path to the file to read recursively
  * @param maxDepth the maximum number of configurations which can be inherited. Default is 25.
+ * @param customMergeFn allows a custom method to merge two objects, objValue merged into srcValue, returning undefined will use default merge
  */
 export function GetJsonObject(
   templatePath: string,
-  maxDepth: number = 25
+  maxDepth: number = 25,
+  customMergeFn?: (objValue: object, srcValue: object) => object
 ): any {
   let templateLayers: Array<any> = [];
   let pathMap: { [key: string]: Boolean } = {};
@@ -59,6 +60,13 @@ export function GetJsonObject(
     );
   }
 
-  let combinedTemplate = merge({}, ...templateLayers);
+  let combinedTemplate: object;
+
+  if (customMergeFn != null) {
+    combinedTemplate = mergeWith({}, ...templateLayers, customMergeFn);
+  } else {
+    combinedTemplate = merge({}, ...templateLayers);
+  }
+
   return combinedTemplate;
 }
