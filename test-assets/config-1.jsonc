@@ -1,7 +1,5 @@
 {
-    "extends": "subdir/other.json",
-    "foo": "red",
-    "bar": [
-        null
-    ]
+  "extends": "subdir/other.json",
+  "foo": "red",
+  "bar": [null]
 }
