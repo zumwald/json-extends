@@ -1,10 +1,12 @@
 # json-extends
 
-A npm library for reading json files with tsconfig-like "extends" inheritence
+![CI](https://github.com/zumwald/json-extends/workflows/CI/badge.svg?branch=master) ![npm](https://img.shields.io/npm/v/json-extends) ![npm](https://img.shields.io/npm/dw/json-extends)
+
+An npm library for reading json files with tsconfig-like "extends" inheritence.
 
 # Install
 
-`yarn add json-extends``
+`yarn add json-extends`
 
 # Use
 
