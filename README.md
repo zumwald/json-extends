@@ -1,6 +1,6 @@
 # json-extends
 
-![CI](https://github.com/zumwald/json-extends/workflows/CI/badge.svg?branch=master) ![npm](https://img.shields.io/npm/v/json-extends) ![npm](https://img.shields.io/npm/dw/json-extends)
+[![CI](https://github.com/zumwald/json-extends/workflows/CI/badge.svg?branch=master)](https://github.com/zumwald/json-extends/actions) [![npm](https://img.shields.io/npm/v/json-extends)](https://www.npmjs.com/package/json-extends) ![npm](https://img.shields.io/npm/dw/json-extends)
 
 An npm library for reading json files with tsconfig-like "extends" inheritence.
 
